@@ -1,0 +1,14 @@
+C:\Users\Honza\OneDrive\Desktop\programovani\C#\Trial\Trial\bin\Debug\net9.0\Trial.exe
+C:\Users\Honza\OneDrive\Desktop\programovani\C#\Trial\Trial\bin\Debug\net9.0\Trial.deps.json
+C:\Users\Honza\OneDrive\Desktop\programovani\C#\Trial\Trial\bin\Debug\net9.0\Trial.runtimeconfig.json
+C:\Users\Honza\OneDrive\Desktop\programovani\C#\Trial\Trial\bin\Debug\net9.0\Trial.dll
+C:\Users\Honza\OneDrive\Desktop\programovani\C#\Trial\Trial\bin\Debug\net9.0\Trial.pdb
+C:\Users\Honza\OneDrive\Desktop\programovani\C#\Trial\Trial\obj\Debug\net9.0\Trial.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Honza\OneDrive\Desktop\programovani\C#\Trial\Trial\obj\Debug\net9.0\Trial.AssemblyInfoInputs.cache
+C:\Users\Honza\OneDrive\Desktop\programovani\C#\Trial\Trial\obj\Debug\net9.0\Trial.AssemblyInfo.cs
+C:\Users\Honza\OneDrive\Desktop\programovani\C#\Trial\Trial\obj\Debug\net9.0\Trial.csproj.CoreCompileInputs.cache
+C:\Users\Honza\OneDrive\Desktop\programovani\C#\Trial\Trial\obj\Debug\net9.0\Trial.dll
+C:\Users\Honza\OneDrive\Desktop\programovani\C#\Trial\Trial\obj\Debug\net9.0\refint\Trial.dll
+C:\Users\Honza\OneDrive\Desktop\programovani\C#\Trial\Trial\obj\Debug\net9.0\Trial.pdb
+C:\Users\Honza\OneDrive\Desktop\programovani\C#\Trial\Trial\obj\Debug\net9.0\Trial.genruntimeconfig.cache
+C:\Users\Honza\OneDrive\Desktop\programovani\C#\Trial\Trial\obj\Debug\net9.0\ref\Trial.dll

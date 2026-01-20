@@ -1,7 +1,7 @@
 namespace Trial;
 
 /*
-name <---- malé písmeno na začátku = privátní člen mother class
+_name <---- malé písmeno na začátku = privátní člen mother class
 Name <---- velké písmeno na začátku = public člen mother class
 Damage_ <- velké písmeno na začátku + podtržítko na konci = Polymorphism
 
@@ -32,7 +32,7 @@ public class Entity
             }
             else
             {
-                Name = value;
+                name = value;
             }
             
         }
@@ -145,7 +145,7 @@ public class Entity
 
     virtual public string Get_info()
     {
-        return $"Jméno: {name} | Útok: {damage} | Max životy: {max_health} | Souč. životy: {current_health} | Ochrana: {armor} | Heal: {heal}";
+        return $"Jméno: {name} | Útok: {damage} | Max životy: {max_health} | Souč. životy: {current_health} | Ochrana: {armor} | Heal: {heal} |";
     }
     
     public Entity(string name, int damage, int max_health, int current_health, int armor, int heal)

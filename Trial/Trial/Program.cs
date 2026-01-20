@@ -1,4 +1,4 @@
-﻿namespace Trial;
+namespace Trial;
 using System;
 
 public class Program
@@ -87,7 +87,6 @@ public class Program
     static int Main()
     {
         intro();
-        zadani_jmena();
         vyber_tridy(zadani_jmena());
         
 

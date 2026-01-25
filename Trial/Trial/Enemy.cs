@@ -2,8 +2,8 @@ namespace Trial;
 
 public class Enemy : Entity
 {
-    public Enemy(string name, int damage, int max_health, int current_health, int armor, int heal) :
-        base(name, damage, max_health, current_health, armor, heal)
+    public Enemy(string name, int damage, int max_health, int current_health, int armor, int heal, int money) :
+        base(name, damage, max_health, current_health, armor, heal, money)
     {
         this.Name = name;
         this.Damage = damage;
@@ -11,5 +11,6 @@ public class Enemy : Entity
         this.Current_Health = current_health;
         this.Armor = armor;
         this.Heal = heal;
+        this.Money = money;
     }
 }

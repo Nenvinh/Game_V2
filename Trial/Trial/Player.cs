@@ -9,6 +9,7 @@ public class Player : Entity
     private char max_health_upgrade;
     private char armor_upgrade;
     private char  heal_upgrade;
+    private char ammo_upgrade;
 
     public int Ammo
     {
@@ -61,17 +62,22 @@ public class Player : Entity
         get{ return heal_upgrade; }
         set{ heal_upgrade = value; }
     }
+
+    private char Ammo_upgrade
+    {
+        get{ return ammo_upgrade; }
+        set{ ammo_upgrade = value; }
+    }
     
     public override string Get_info()
     {
-        return base.Get_info() + $" Trida: {trida} | Action: {action}";
+        return base.Get_info() + $" Trida: {trida} | Ammo: {ammo} | Action: {action}";
     }
+    
 
-    
-    
-    
-    public Player(string name, int damage, int max_health, int current_health, int armor, int heal, int ammo, string trida, string action, char damage_upgrade, char max_health_upgrade, char armor_upgrade, char  heal_upgrade) :
-        base(name, damage, max_health, current_health, armor, heal)
+    //Konstruktor
+    public Player(string name, int damage, int max_health, int current_health, int armor, int heal, int money, int ammo, string trida, string action, char damage_upgrade, char max_health_upgrade, char armor_upgrade, char  heal_upgrade, char ammo_upgrade) :
+        base(name, damage, max_health, current_health, armor, heal, money)
     {
         this.Name = name;
         this.Damage = damage;
@@ -79,6 +85,7 @@ public class Player : Entity
         this.Current_Health = current_health;
         this.Armor = armor;
         this.Heal = heal;
+        this.Money = money;
         this.Ammo = ammo;
         this.Trida = trida;
         this.Action = action;
@@ -86,6 +93,8 @@ public class Player : Entity
         this.Max_health_upgrade = max_health_upgrade;
         this.Armor_upgrade = armor_upgrade;
         this.Heal_upgrade = heal_upgrade;
+        this.Ammo_upgrade = ammo_upgrade;
+        
         
     }
     

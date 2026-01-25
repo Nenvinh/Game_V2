@@ -15,6 +15,7 @@ public class Entity
     private int current_health;
     private int armor;
     private int heal;
+    private int money;
     public bool is_alive = true;
 
 
@@ -91,9 +92,9 @@ public class Entity
         get{return armor;}
         set
         {
-            if (value <= 0)
+            if (value < 0)
             {
-                Console.WriteLine("Damage nemůže být 0 a némě.");
+                Console.WriteLine("Armor nemůže být 0 a némě.");
             }
             else
             {
@@ -109,46 +110,55 @@ public class Entity
         {
             if (value <= 0)
             {
-                Console.WriteLine("Damage nemůže být 0 a némě.");
+                Console.WriteLine("Heal nemůže být 0 a némě.");
             }
             else
             {
-                armor = value;
+                heal = value;
             }
         }
     }
-    
-    
-    public virtual int Damage_(int damage, int current_health, int armor)
+
+    public int Money
+    {
+        get { return money; }
+        set { money = value; }
+    }
+
+    public int Damage_(int damage, int current_health, int armor)
     {
         current_health = current_health + armor - damage;
         return current_health;
     }
 
     
-    public virtual int Heal_(int heal, int current_health, int max_health)
+    public int Heal_(int heal, int current_health, int max_health)
     {
-        current_health =+ heal;
+        current_health = current_health + heal;
         if (current_health > max_health)
         {
             current_health = max_health;
-            return current_health;
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Overheal na max health {max_health} hp.");
+            Console.ResetColor();
+            return current_health;
         }
         else
         {
-            return current_health;
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Healing +{heal} hp.");
+            Console.ResetColor();
+            return current_health;
         }
     }
 
 
     virtual public string Get_info()
     {
-        return $"Jméno: {name} | Útok: {damage} | Max životy: {max_health} | Souč. životy: {current_health} | Ochrana: {armor} | Heal: {heal} |";
+        return $"Jméno: {name} | Útok: {damage} | Max životy: {max_health} | Souč. životy: {current_health} | Ochrana (armor): {armor} | Heal: {heal} | Money: {money} |";
     }
     
-    public Entity(string name, int damage, int max_health, int current_health, int armor, int heal)
+    public Entity(string name, int damage, int max_health, int current_health, int armor, int heal, int money)
     {
         this.Name = name;
         this.Damage = damage;
@@ -156,6 +166,7 @@ public class Entity
         this.Current_Health = current_health;
         this.Armor = armor;
         this.Heal = heal;
+        this.Money = money;
     }
     
     

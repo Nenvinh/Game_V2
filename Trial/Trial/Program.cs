@@ -41,7 +41,7 @@ public class Program
             Console.WriteLine("zadejte vaše zaměření: ");
             Console.WriteLine("1. RIFLEMAN (začíná se armorem)");
             Console.WriteLine("2. COMMANDER  (začíná se více penězi)");
-            Console.WriteLine("3. SPECIAL FORCES (začíná se více HP)");
+            Console.WriteLine("3. SPECIAL FORCES (útoky berou více HP)");
             Console.WriteLine("4. MEDIC (léčí se více HP)");
             Console.Write("Zadejte: ");
             int choice = Convert.ToInt32(Console.ReadLine());
@@ -63,7 +63,7 @@ public class Program
                     Console.WriteLine("Vybráno: SPECIAL FORCES");
                     Thread.Sleep(1000);
                     Console.Clear();
-                    return "special_forces";
+                    return "special";
                     break;
                 case 4:
                     Console.WriteLine("Vybráno: MEDIC");
@@ -84,7 +84,6 @@ public class Program
         
             
         }
-        return "random";
     }
 
     static string zadani_jmena()
@@ -111,10 +110,85 @@ public class Program
     {
         //intro();
         
-        Player hrac = new Player("R", 1, 1, 1, 1, 1, 1,"Random","",'0','0','0','0');
+        Player hrac = new Player("Random", 1, 1, 1, 1, 1, 1, 30, "Random", " ", '0', '0', '0', '0', '0');
         hrac.Name = zadani_jmena();
         hrac.Trida = vyber_tridy();
+        
+        //switch na zadávání dat tříd
+        switch (hrac.Trida)
+        {
+            case "rifleman":
+                hrac.Damage = 10;
+                hrac.Damage_upgrade = '0';
+                hrac.Max_Health = 20;
+                hrac.Max_health_upgrade = '0';
+                hrac.Current_Health = hrac.Max_Health;
+                hrac.Armor = 10;
+                hrac.Armor_upgrade = '1';
+                hrac.Heal = 5;
+                hrac.Heal_upgrade = '0';
+                hrac.Money = 10;
+                hrac.Ammo = 30;
+                //hrac.Ammo_upgrade = '0';
+                break;
+            case "commander":
+                hrac.Damage = 10;
+                hrac.Damage_upgrade = '0';
+                hrac.Max_Health = 20;
+                hrac.Max_health_upgrade = '0';
+                hrac.Current_Health = hrac.Max_Health;
+                hrac.Armor = 0;
+                hrac.Armor_upgrade = '0';
+                hrac.Heal = 5;
+                hrac.Heal_upgrade = '0';
+                hrac.Money = 30;
+                hrac.Ammo = 30;
+                //hrac.Ammo_upgrade = '0';
+                break;
+            case "medic":
+                hrac.Damage = 10;
+                hrac.Damage_upgrade = '0';
+                hrac.Max_Health = 20;
+                hrac.Max_health_upgrade = '0';
+                hrac.Current_Health = 20;
+                hrac.Armor = 0;
+                hrac.Armor_upgrade = '0';
+                hrac.Heal = 10;
+                hrac.Heal_upgrade = '1';
+                hrac.Money = 10;
+                hrac.Ammo = 30;
+                //hrac.Ammo_upgrade = '0';
+                break;
+            case "special":
+                hrac.Damage = 20;
+                hrac.Damage_upgrade = '1';
+                hrac.Max_Health = 20;
+                hrac.Max_health_upgrade = '0';
+                hrac.Current_Health = hrac.Max_Health;
+                hrac.Armor = 10;
+                hrac.Armor_upgrade = '0';
+                hrac.Heal = 5;
+                hrac.Heal_upgrade = '0';
+                hrac.Money = 10;
+                hrac.Ammo = 30;
+                //hrac.Ammo_upgrade = '0';
+                break;
+        }
+        
         Console.WriteLine(hrac.Get_info());
+        hrac.Current_Health = hrac.Damage_(20, hrac.Current_Health, hrac.Armor);
+        Console.WriteLine($"Damage: {hrac.Damage_(20, hrac.Current_Health, hrac.Armor)}");
+        Console.WriteLine(hrac.Get_info());
+        hrac.Current_Health = hrac.Heal_(hrac.Heal, hrac.Current_Health, hrac.Max_Health);
+        Console.WriteLine($"Heal: {hrac.Heal_(hrac.Heal, hrac.Current_Health, hrac.Max_Health)}");
+        Console.WriteLine(hrac.Get_info());
+       
+        /*while (hrac.is_alive)
+        {
+            
+        }
+        */
+        
         
         
         return 0;

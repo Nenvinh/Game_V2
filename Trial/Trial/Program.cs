@@ -129,7 +129,7 @@ public class Program
                 hrac.Heal_upgrade = '0';
                 hrac.Money = 10;
                 hrac.Ammo = 30;
-                //hrac.Ammo_upgrade = '0';
+                hrac.Ammo_upgrade = '0';
                 break;
             case "commander":
                 hrac.Damage = 10;
@@ -143,7 +143,7 @@ public class Program
                 hrac.Heal_upgrade = '0';
                 hrac.Money = 30;
                 hrac.Ammo = 30;
-                //hrac.Ammo_upgrade = '0';
+                hrac.Ammo_upgrade = '0';
                 break;
             case "medic":
                 hrac.Damage = 10;
@@ -157,7 +157,7 @@ public class Program
                 hrac.Heal_upgrade = '1';
                 hrac.Money = 10;
                 hrac.Ammo = 30;
-                //hrac.Ammo_upgrade = '0';
+                hrac.Ammo_upgrade = '0';
                 break;
             case "special":
                 hrac.Damage = 20;
@@ -171,10 +171,11 @@ public class Program
                 hrac.Heal_upgrade = '0';
                 hrac.Money = 10;
                 hrac.Ammo = 30;
-                //hrac.Ammo_upgrade = '0';
+                hrac.Ammo_upgrade = '0';
                 break;
         }
         
+        /* Alfa verze kombatu
         Console.WriteLine(hrac.Get_info());
         hrac.Current_Health = hrac.Damage_(20, hrac.Current_Health, hrac.Armor);
         Console.WriteLine($"Damage: {hrac.Damage_(20, hrac.Current_Health, hrac.Armor)}");
@@ -182,10 +183,42 @@ public class Program
         hrac.Current_Health = hrac.Heal_(hrac.Heal, hrac.Current_Health, hrac.Max_Health);
         Console.WriteLine($"Heal: {hrac.Heal_(hrac.Heal, hrac.Current_Health, hrac.Max_Health)}");
         Console.WriteLine(hrac.Get_info());
+        */
+        
+        Console.Clear();
+        Enemy shotgun = new Enemy("Shotgun", 5, 10, 10, 0, 10, 5);
+        
+        hrac.Get_Info_new();
+        shotgun.Get_Info_new();
        
+        hrac.Attack(shotgun);
+
+        hrac.Get_Info_new();
+        shotgun.Get_Info_new();
+        
+        shotgun.Attack(hrac);
+        
+        hrac.Get_Info_new();
+        shotgun.Get_Info_new();
+
+        shotgun.Healing(shotgun);
+        
+        hrac.Get_Info_new();
+        shotgun.Get_Info_new();
+        
+        hrac.Obchod();
+        
+        
         /*while (hrac.is_alive)
         {
-            
+          
+          hrac.is_alive = hrac.Life_monitoring(hrac.Current_Health); 
+        
+        
+        
+        
+        
+        
         }
         */
         

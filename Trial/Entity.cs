@@ -7,7 +7,14 @@ Damage_ <- velké písmeno na začátku + podtržítko na konci = Polymorphism
 
 */
 
-public class Entity
+public interface IEntity
+{
+    void Get_Info_new();
+    void Attack(Entity target);
+    int Healing(Entity target);
+}
+
+public class Entity : IEntity
 {
     private string name;
     private int damage;
@@ -78,7 +85,7 @@ public class Entity
         {
             if (value <= 0)
             {
-                Console.WriteLine("Současné životy je 0 a méně.");
+                Console.WriteLine("Hodnota Současné životy je 0 a méně.");
             }
             else
             {
@@ -152,6 +159,21 @@ public class Entity
         return $"Jméno: {name} | Útok: {damage} | Max životy: {max_health} | Souč. životy: {current_health} | Ochrana (armor): {armor} | Heal: {heal} | Money: {money} |";
     }
     
+    public virtual void Get_Info_new()
+    {
+        Console.WriteLine($"============================================{name} stats============================================");
+        Console.WriteLine($"Jméno: {name}");
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.WriteLine($"Současné životy: {current_health} hp");
+        Console.ResetColor();
+        Console.WriteLine($"Armor: {armor}");
+        Console.WriteLine($"Heal: {heal}");
+        Console.ForegroundColor = ConsoleColor.DarkRed;
+        Console.WriteLine($"Útok: -{damage} hp");
+        Console.ResetColor();
+    }
+    
+    
     //============================================ATTACK & UBÍRÁNÍ ŽIVOTA============================================
     
     public virtual int CalculateAttackDamage()
@@ -165,6 +187,7 @@ public class Entity
         if (reduced < 0)
         {
             reduced = 0;
+            Console.WriteLine($"{name} má až moc tlustý armor.");
         }
         current_health -= reduced;
     }
@@ -173,10 +196,50 @@ public class Entity
     {
         int finalDamage = CalculateAttackDamage();
         target.TakeDamage(finalDamage);
+        Console.WriteLine("");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine($"{Name} zaútočil -{finalDamage} hp.");
+        Console.WriteLine("");
+        Console.ResetColor();
     }
     
     //============================================ATTACK & UBÍRÁNÍ ŽIVOTA============================================
 
+    
+    //============================================HEALING & PŘIDÁVÁNÍ ŽIVOTA============================================
+
+    public virtual int get_Heal(int heal_points)
+    {
+        int added = Current_Health +  heal_points;
+       if (added > Max_Health)
+       {
+           Console.ForegroundColor = ConsoleColor.DarkGreen;
+           Console.WriteLine($"{Name} Overheal na max health {max_health} hp.");
+           Console.ResetColor();
+           return Current_Health = Max_Health;
+       }
+       else
+       {
+           Console.ForegroundColor = ConsoleColor.Green;
+           Console.WriteLine($"{Name} se léčí +{heal} hp.");
+           Console.ResetColor();
+           return Current_Health += heal_points;
+       }
+       
+    }
+
+    public virtual int Healing(Entity target)
+    {
+        get_Heal(target.Heal);
+        return 0;
+    }
+    
+    
+    //============================================HEALING & PŘIDÁVÁNÍ ŽIVOTA============================================
+    
+    
+    
+    
     public bool Life_monitoring(int status)
     {
         if (status <= 0)
@@ -188,9 +251,6 @@ public class Entity
             return true;
         }
     }
-
-    
-    
     
     //konstuktor
     public Entity(string name, int damage, int max_health, int current_health, int armor, int heal, int money)

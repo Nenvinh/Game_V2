@@ -2,6 +2,12 @@ namespace Trial;
 
 public class Enemy : Entity
 {
+    public override void Get_Info_new()
+    {
+        base.Get_Info_new();
+        Console.WriteLine($"============================================{Name} stats============================================");
+    }
+
     public Enemy(string name, int damage, int max_health, int current_health, int armor, int heal, int money) :
         base(name, damage, max_health, current_health, armor, heal, money)
     {
